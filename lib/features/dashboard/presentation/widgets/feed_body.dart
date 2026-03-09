@@ -29,7 +29,6 @@ class FeedBody extends StatelessWidget {
           comments: 37,
           shares: 20,
           likedText: "Liked by Libin and 345 others",
-          showBorder: true,
           showIconProfile: true,
         ),
 
@@ -42,7 +41,7 @@ class FeedBody extends StatelessWidget {
 
         //Post Card
         SocialPostCard(
-          profileImage: AppOnlineImage.profileImage,
+          profileImage: AppOnlineImage.hmitChennai,
           title: "Himt Chennai",
           time: "27 min ago",
           postImage: AppAssets.image2,

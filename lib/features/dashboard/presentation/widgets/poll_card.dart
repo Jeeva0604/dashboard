@@ -1,3 +1,4 @@
+import 'package:dashboard/core/constant/app_online_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constant/app_colors.dart';
@@ -38,11 +39,7 @@ class _PollCardState extends State<PollCard> {
                 children: [
                   CircleAvatar(
                     radius: 16,
-                    backgroundColor: Colors.blue.shade900,
-                    child: const Text(
-                      'M',
-                      style: TextStyle(color: Colors.white),
-                    ),
+                    backgroundImage: NetworkImage(AppOnlineImage.mmdChennai),
                   ),
                   const SizedBox(width: 8),
                   Expanded(
@@ -176,12 +173,8 @@ class _PollCardState extends State<PollCard> {
                         options[i],
                         style: TextStyle(
                           fontSize: 13,
-                          color: selected
-                              ? AppColors.primaryColor
-                              : Colors.black87,
-                          fontWeight: selected
-                              ? FontWeight.bold
-                              : FontWeight.normal,
+                          color: AppColors.primaryColor,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),

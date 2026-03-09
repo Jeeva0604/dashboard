@@ -15,4 +15,10 @@ class AppOnlineImage {
   static const String person4 =
       "https://randomuser.me/api/portraits/men/60.jpg";
   static const String person5 = "https://randomuser.me/api/portraits/men/8.jpg";
+
+  static const String mmdChennai =
+      "https://images.jdmagicbox.com/v2/comp/chennai/68/044p4170468/catalogue/mercantile-marine-department-parrys-chennai-4bgel7v-250.jpg";
+
+  static const String hmitChennai =
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbStRuqFEmb_l6wmZJ9gaxoSymPv_Hdkib1g&s";
 }

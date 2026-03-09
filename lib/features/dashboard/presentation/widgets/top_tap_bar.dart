@@ -25,9 +25,10 @@ class _TopTabBarState extends State<TopTabBar> {
     return Container(
       height: 60,
       color: Colors.white,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: List.generate(icons.length, (index) {
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: icons.length,
+        itemBuilder: (context, index) {
           final selected = index == selectedIndex;
 
           return GestureDetector(
@@ -36,31 +37,33 @@ class _TopTabBarState extends State<TopTabBar> {
                 selectedIndex = index;
               });
             },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  icons[index],
-                  color: selected
-                      ? AppColors.primaryColor
-                      : AppColors.primaryColor.withValues(alpha: 0.6),
-                ),
-
-                const SizedBox(height: 6),
-
-                if (selected)
-                  Container(
-                    width: 20,
-                    height: 3,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF2E3580),
-                      borderRadius: BorderRadius.circular(2),
-                    ),
+            child: Container(
+              width: MediaQuery.of(context).size.width / icons.length,
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    icons[index],
+                    color: selected
+                        ? AppColors.primaryColor
+                        : AppColors.primaryColor.withValues(alpha: 0.6),
                   ),
-              ],
+                  const SizedBox(height: 6),
+                  if (selected)
+                    Container(
+                      width: 20,
+                      height: 3,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF2E3580),
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                ],
+              ),
             ),
           );
-        }),
+        },
       ),
     );
   }

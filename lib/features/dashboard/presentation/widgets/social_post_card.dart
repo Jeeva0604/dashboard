@@ -10,7 +10,6 @@ class SocialPostCard extends StatefulWidget {
   final String postImage;
   final String bottomText;
   final bool isFollowing;
-  final bool showBorder;
   final bool showIconProfile;
   final int likes;
   final int comments;
@@ -29,7 +28,6 @@ class SocialPostCard extends StatefulWidget {
     required this.shares,
     required this.likedText,
     this.isFollowing = false,
-    this.showBorder = false,
     this.showIconProfile = false,
   });
 
@@ -47,7 +45,7 @@ class _SocialPostCardState extends State<SocialPostCard> {
       child: Column(
         children: [
           Card(
-            color : Colors.white,
+            color: Colors.white,
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -67,12 +65,7 @@ class _SocialPostCardState extends State<SocialPostCard> {
                           height: 38,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            border: widget.showBorder
-                                ? Border.all(
-                                    color: AppColors.primaryColor,
-                                    width: 2,
-                                  )
-                                : null,
+
                             image: DecorationImage(
                               image: NetworkImage(widget.profileImage),
                               fit: BoxFit.cover,
@@ -146,24 +139,6 @@ class _SocialPostCardState extends State<SocialPostCard> {
                         fit: BoxFit.cover,
                       ),
 
-                      /// volume icon
-                      Positioned(
-                        bottom: 8,
-                        right: 8,
-                        child: Container(
-                          padding: const EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                            color: Colors.black45,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: const Icon(
-                            Icons.volume_up,
-                            color: Colors.white,
-                            size: 18,
-                          ),
-                        ),
-                      ),
-
                       Positioned(
                         bottom: 8,
                         left: 8,
@@ -181,21 +156,23 @@ class _SocialPostCardState extends State<SocialPostCard> {
                         ),
                       ),
 
-                      /// optional icon
-                      if (widget.showIconProfile)
-                        const Positioned(
-                          bottom: 8,
-                          left: 8,
-                          child: CircleAvatar(
-                            radius: 16,
-                            backgroundColor: Colors.white30,
-                            child: Icon(
-                              Icons.person,
-                              color: Colors.white,
-                              size: 18,
-                            ),
+                      /// volume icon
+                      Positioned(
+                        bottom: 8,
+                        right: 8,
+                        child: Container(
+                          padding: const EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            color: Colors.black45,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: const Icon(
+                            Icons.volume_up,
+                            color: Colors.white,
+                            size: 18,
                           ),
                         ),
+                      ),
                     ],
                   ),
 
